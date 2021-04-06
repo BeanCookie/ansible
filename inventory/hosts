@@ -1,2 +1,2 @@
 [ansible]
-ansible ansible_host=ansible ansible_ssh_port=22
+ansible ansible_host=ansible ansible_ssh_port=2222
