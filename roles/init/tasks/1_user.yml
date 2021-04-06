@@ -1,0 +1,35 @@
+---
+- name: add user
+  become: yes
+  user:
+    name: "{{ operation_user }}"
+    groups: sudo
+    state: present
+    createhome: yes
+- name: add sudoer
+  become: yes
+  template:
+    src: sudoers.j2
+    dest: "/etc/sudoers.d/{{ operation_user }}"
+    validate: 'visudo -cf %s'
+    mode: 0440
+- name: add authorized key
+  become: yes
+  authorized_key:
+    user: "{{ operation_user }}"
+    key: "{{ item }}"
+  with_file: "{{ ansible_ssh_private_key_file }}.pub"
+- name: config bash
+  user:
+    name: "{{ operation_user }}"
+    shell: /bin/bash
+  become: true
+- name: sub dirs user
+  become: yes
+  file:
+    path: "{{ parent_dir }}/{{ item }}"
+    state: directory
+    owner: "{{ operation_user }}"
+    group: "{{ operation_user }}"
+    mode: 0775
+  with_items: "{{ sub_dirs }}"

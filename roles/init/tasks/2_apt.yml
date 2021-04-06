@@ -1,0 +1,14 @@
+---
+- name: update sources
+  become: yes
+  copy:
+    src: sources-bionic.list
+    dest: /etc/apt/sources.list
+    backup: yes
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version == "18.04"
+- name: apt update
+  become: yes
+  apt: update_cache=yes
+  when: ansible_distribution == "Ubuntu"

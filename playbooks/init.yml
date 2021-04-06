@@ -1,0 +1,6 @@
+---
+- name: init
+  hosts: "{{ host | default('ansible') }}"
+  remote_user: "{{ root_user }}"
+  roles:
+    - role: init

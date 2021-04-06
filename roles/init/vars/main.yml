@@ -1,0 +1,4 @@
+---
+parent_dir: /opt
+sub_dirs:
+  - services
