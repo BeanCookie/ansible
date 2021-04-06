@@ -1,2 +1,2 @@
 [ansible]
-ansible ansible_user=vagrant ansible_ssh_port=2222
+ansible ansible_user=vagrant ansible_ssh_port=22
