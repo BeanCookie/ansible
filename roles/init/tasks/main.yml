@@ -1,0 +1,4 @@
+---
+- include: 1_user.yml
+- include: 2_apt.yml
+- include: 3_system.yml
