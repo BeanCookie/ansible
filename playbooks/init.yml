@@ -1,5 +1,5 @@
 ---
-- name: init
+- name: init playbook
   hosts: "{{ host | default('ansible') }}"
   remote_user: "{{ root_user }}"
   roles:
