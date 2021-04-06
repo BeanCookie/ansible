@@ -1,0 +1,22 @@
+ansible_python_interpreter: /usr/bin/python3
+root_user: op
+operation_user: op
+ansible_ssh_private_key_file: ~/.ssh/id_rsa
+shell_bin: bash
+shell_file: .bashrc
+services_path: /opt/services
+services_permission: 755
+sites_path: /opt/sites
+make_bin: make -j{{ ansible_processor_vcpus }}
+exec_date: "{{ lookup('pipe', 'date +%Y-%m-%d') }}"
+gitlab_repo_url: "ssh://git@gitlab.zeaho.com:10133"
+local_resource_site: "http://192.168.2.250:880"
+mysql_bindip: 0.0.0.0
+mysql_bindport: '4408'
+mysql_grantuser: zhgmysql
+mysql_grantpasswd: '4wXX0123.com'
+mongo_bindip: 0.0.0.0
+mongo_bindport: '27017'
+mongo_grantuser: zhgmongo
+mongo_grantpasswd: 'zhg2019'
+pip_source: "https://pypi.douban.com/simple"
